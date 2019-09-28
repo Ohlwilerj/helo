@@ -17,7 +17,8 @@ app.use(session({
 }))
 
 // ENDPOINTS
-app.post('auth/login', authCtrl.login)
+app.post('/auth/login', authCtrl.login)
+app.post('/auth/register', authCtrl.register)
 
 massive(CONNECTION_STRING).then(db => {
     app.set('db', db)
