@@ -1,0 +1,71 @@
+
+.column-parent {
+    display: flex;
+    height: 100vh;
+}
+.nav-links {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    width: 100px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding-top: 20px;
+    color: #fff;
+    background-image: linear-gradient(0deg,#ff7abe,#ff9770);
+    box-shadow: 10px 0 20px 0 rgba(0,0,0,.1),5px 0 5px rgba(0,0,0,.2);
+}
+nav > img {
+    color: #fff;
+box-sizing: inherit;
+margin: 0;
+padding: 0;
+border: 0;
+font-size: 100%;
+font: inherit;
+vertical-align: baseline;
+width: 70px;
+height: 70px;
+background-color: #fff;
+background-position: 50%;
+background-size: cover;
+border-radius: 50%;
+box-shadow: 0 0 20px #333;
+background-image: url("https://robohash.org/y");
+}
+.top-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.profile-pic {
+    height: 75px;
+    width: 75;
+    filter: invert(0);
+}
+.home {
+    margin: 50px 0 0 0;
+    color: white;
+    font-size: 60px;
+}
+.document {
+    margin-top: 50px;
+    color: white;
+    font-size: 60px;
+}
+.link {
+    text-decoration: none;
+    color: white;
+}
+
+.power{
+    margin-top: 300px;
+    color: white;
+    font-size: 60px;
+}

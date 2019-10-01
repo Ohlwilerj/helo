@@ -1,0 +1,43 @@
+.white-box-parent {
+    display: flex;
+    justify-content: center;
+    margin: 5vh 0 0;
+    width: 100%;
+}
+
+.white-box {
+    height: 50vh;
+    width: 70%;
+    box-shadow: .5px .5px 3px;
+}
+
+.post-header {
+    display: flex;
+    align-items: center;
+}
+
+.post-title {
+    margin: 1vh 0 0 2vw;
+}
+
+.post-username {
+    margin: 1vh 1vw 0 35vw;
+}
+
+.profile-pic {
+    margin: 1vh 0 0 0;
+    height: auto;
+    width: 75px;
+}
+
+.img-content {
+    display: flex;
+}
+
+.img-content > img {
+    margin: 1vh 0 0 1vw;
+}
+
+.post-content {
+    margin: 1vh 0 0 1vw;
+}

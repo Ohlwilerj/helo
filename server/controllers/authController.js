@@ -27,8 +27,50 @@ module.exports = {
         
     },
     logout: async (req, res) => {
-        res.session.destroy()
+        req.session.destroy()
         res.sendStatus(200)
     },
+    getPost: async (req, res) => {
+        const db = req.app.get('db)')
+        const {userid} = req.session 
+        const {userPosts, search} = req.query
+        const result = await db.get_post()
+        if (userPosts === 'true' && search !== '') {
+            const filteredResult = result.filter(el => el.title.includes(search))
+            res.status(200).send(filteredResult)
+        } else if (userPosts === 'false' && search !== '') {
+            const filteredResult = result.filter(el => el.user_id !== +userid)
+            res.status(200).send(filteredResult)
+        } else if (userPosts === 'false' && search !== '') {
+            const filteredResult = result.filter(el => user_id !== userid)
+            const filteredSearch = filteredResult.filter(el => el.title.includes(search))
+            res.status(200).send(filteredSearch)
+        } else if (userPosts === 'true' && search === '') {
+            res.status(200).send(result)
+        } else {
+            console.log(`Didn't work`)
+        }
+    },
+    getOnePost: async (req, res) => {
+        const db = req.app.get('db')
+        const {postId} = req.params 
+        const result = await db.get_one_post(postId)
+        res.status(200).send(result)
+    },
+
+    addPost: async (req, res) => {
+        const db = req.app.get('db') 
+        const {userId} = req.session
+        const {title, image_url, content} = req.body
+        await db.add_post([title, image_url, content, userId])
+        res.sendStatus(200)
+    },
+
+    findUser: async (req, res) => {
+        const db = req.app.get('db')
+        const {userId} = req.session
+        let result = await db.find_user_by_id(userId)
+        res.status(200).send(result)
+    }
     
 }

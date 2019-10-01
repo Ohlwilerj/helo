@@ -1,0 +1,53 @@
+.space {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    background: #F2f2f2
+}
+
+.search-box {
+    height: 50px;
+    width: 75%;
+    margin: 40px 0 10px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff;
+    box-shadow: .5px .5px 3px;
+}
+
+.search-input {
+    width: 400px;
+}
+
+.posts-box {
+    height: auto;
+    width: 75%;
+    background: #ffffff;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    box-shadow:  .5px .5px 3px;
+}
+
+.single-post {
+    height: 75px;
+    display: flex;
+    flex-direction: row;
+    background: #ffffff;
+    margin: 30px 0;
+    box-shadow: .5px .5px 3 px;
+}
+
+.post-title {
+    margin-left: 20px;
+}
+
+.post-profile-pic {
+    height: auto;
+    width: 75px;
+    filter: invert(0);
+    border-radius: 50%;
+}

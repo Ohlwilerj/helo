@@ -19,6 +19,8 @@ app.use(session({
 // ENDPOINTS
 app.post('/auth/login', authCtrl.login)
 app.post('/auth/register', authCtrl.register)
+app.get('auth/posts' , authCtrl.getPost)
+app.get('auth/post/:postid', authCtrl.getOnePost) 
 
 massive(CONNECTION_STRING).then(db => {
     app.set('db', db)

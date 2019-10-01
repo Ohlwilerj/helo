@@ -25,12 +25,15 @@ class Auth extends Component {
         const {password, username} = this.state
         console.log(this.state)
         const res = await axios.post('/auth/login', {username, password})
-        .then(res => {
-            const {username, profile_img, user_id} = res.data.user
-            this.props.createUser({username, profile_img, user_id})
+        if (res.data.username) {
+            let {username, profile_img} = res.data
+            let user = {username, profile_img}
+            this.props.createUser(user)
             this.props.history.push('/dashboard')
-        })
-        swal.fire(res.data.message)
+        } else {
+
+            swal.fire(res.data.message)
+        }
     }
 
     registerUser = async () => {
@@ -40,7 +43,7 @@ class Auth extends Component {
                 this.props.history.push('/dashboard')
                 this.props.createUser(res.data.id, res.data.username, res.data.profile_img)
             } else {
-                alert(`${swal.fire({type: 'error', text: res.data.message})}`)
+                swal.fire({type: 'error', text: res.data.message})
                 
             }
     }
@@ -54,10 +57,8 @@ class Auth extends Component {
                         <h1>Helo</h1>
                     </div>
                     <div className="input-boxes">
-                        <form>
                             Username:<input type="text" onChange={e => this.handleChange(e, 'username')} placeholder="Username"></input> 
                             Password:<input type="text" onChange={e => this.handleChange(e, 'password')} placeholder="Password"></input>
-                        </form>
                         <div className="buttons">
                             <button onClick={this.login}>Login</button>
                             <button onClick={this.registerUser}>Register</button>
